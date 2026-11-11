@@ -1,8 +1,8 @@
 {
   "name": "Wuliwb's Source",
   "identifier": "com.wuliwb.sidestore-source",
-  "subtitle": "GestaltX, Roam Control & Erosion-CN",
-  "description": "自动跟踪 GestaltX、Roam Control 和 Erosion-CN 最新 Release IPA 的 SideStore 源。",
+  "subtitle": "GestaltX, Roam Control, Erosion-CN & MiniWatts",
+  "description": "自动跟踪 GestaltX、Roam Control、Erosion-CN 和 MiniWatts 最新 Release IPA 的 SideStore 源。",
   "website": "https://github.com/wuliwb/SideSotreSource",
   "iconURL": "https://raw.githubusercontent.com/wuliwb/SideSotreSource/main/icon.png",
   "tintColor": "#6C5CE7",
@@ -112,6 +112,45 @@
           "size": 5769202,
           "localizedDescription": "## Erosion-CN v0.7.2 更新日志 (Build 14)\n\n### 🛡️ 全链路沙盒逃逸与文件操作安全加固（覆盖 24 个源码文件）\n1. **修复内置 Plist 编辑器「保存回旧值」的 P0 缺陷**：\n   - 修复 `ModifyItemPage` 通过 `@Binding` 原地修改数组元素导致 `PlistManager.replacePlistItem` 误判键值未变动、将 `isModified` 重置为 `false` 并写回原值 `rawVal` 的问题；现改用独立草稿状态 `draftItem` 并在保存时强制清除旧 `rawVal`，确保已有键值修改 100% 落盘生效。\n2. **重构 `WorseQuerySwift` 令牌保留机制与文件浏览器容器授权**：\n   - 新增 `requireWrite: Bool` 参数：当访问 `System`、`SystemGroup`、`InternalDaemon` 等属主非 `mobile` 的只读系统容器（或 iOS 26 下的只读目录）且成功获取沙盒令牌（`res >= 0 && isActuallyReadable`）时，始终缓存并保留该内核沙盒令牌，不再因 `!isActuallyWritable` 主动调用 `worse_query_release` 吊销只读权限。\n   - 修复 `getFileItem` 中 `getBIDFromXattr` 过早释放容器令牌导致目录属性与读写状态读取失真的问题；将 `FMRootView` 中「共享应用组 (App Groups)」与「系统数据容器 (System)」统一标记为 `isContainer: true`。\n   - 修复 `FileBrowserView` 切换排序模式或升降序时重复触发 1500 万 Inode `pathleak` 全盘重扫的问题（现直接在内存中重排）。\n   - 修复 `FileRow` 点击指向普通文件的符号链接时误当作目录打开报错的问题，并修正相对路径符号链接解析。\n3. **修复「自定义锁屏壁纸 (`PosterBoardView`)」与「拨号键盘美化 (`KeypadView`)」沙盒授权缺陷**：\n   - **锁屏壁纸**：修复 `resetWallpapers` 未调用 `wq.grantAccess` 导致重置必败的问题；在 `applyObjects` 中优先对 `PosterBoard` 容器根目录授权并动态识别 `PRBPosterExtensionDataStore/<version>` 版本号；修复 `handleImport` 在导入失败时恒返回 `true` 吞掉报错弹窗的问题。\n   - **拨号键盘**：修复 `KeypadView` 使用 `isReadableFile` 代替可写校验且丢弃 `grantAccess` 返回值的问题；在写入前自动确保创建 `Library/Caches/TelephonyUI-10` 目录；修复 `importTheme` 未做 Zip Slip 校验、`-hi-` 高亮图覆盖普通按键图及深色模式拒入标准主题包的问题，并支持持久化记忆非 `other` 区域前缀与手动刷新容器路径。\n4. **加固「应用存档管理 (`AppDataBackupView`)」与「容器缓存清理 (`CacheCleanerView`)」**：\n   - 始终先对应用容器根目录授权并按需创建 `Documents` / `Library/Preferences` 子目录，避免子目录尚未生成时报 `-255`。\n   - 修复重装应用后还原存档仍沿用内存旧容器 UUID 的问题（新增路径存活与 `xattr` Bundle ID 二次校验，自动重扫定位新容器 UUID），支持还原合法 0 字节标识文件，并补齐 Zip Slip 路径穿越防护。\n   - 修复备份与清理缓存时使用 `try?` 吞掉异常虚报成功的问题；在缓存清理中保护 `com.apple.mobilephone` 的 `TelephonyUI-10` 自定义拨号盘目录。\n5. **加固「任意文件替换 (`OperationsView`)」、「系统配置 (`ConfigView`)」与「`MobileGestalt` (`GestaltView`)」**：\n   - `OperationsView` 与 `GestaltView` 跨进程分享导出前统一调用 `makeTemp()` 拷贝至临时目录，解决跨进程 `ShareSheet` 无外部容器令牌导致导出失败的问题；修复 `OperationsView` 父目录授权与按钮禁用状态。\n   - ",
           "minOSVersion": "26.0"
+        }
+      ]
+    },
+    {
+      "name": "MiniWatts",
+      "bundleIdentifier": "org.zhaohe.MiniWatts",
+      "developerName": "ResistanceTo",
+      "subtitle": "iPhone battery & charging monitor",
+      "localizedDescription": "MiniWatts 是一个基于 Apple 私有 API 的电池与充电监控工具，可显示充电器实时功率、实际进入电芯的电量、热损耗、全部温度传感器读数以及 USB-PD 握手信息。支持 iOS 17+，无任何网络代码，隐私安全。",
+      "iconURL": "https://raw.githubusercontent.com/wuliwb/SideSotreSource/main/MiniWatts-icon.png",
+      "tintColor": "#6C5CE7",
+      "category": "utilities",
+      "versions": [
+        {
+          "version": "1.7.0",
+          "buildVersion": "v1.7.0",
+          "date": "2026-11-07T08:08:32Z",
+          "downloadURL": "https://github.com/ResistanceTo/MiniWatts/releases/download/v1.7.0/MiniWatts-unsigned.ipa",
+          "size": 3374224,
+          "localizedDescription": "Unsigned build — sign it with your own Apple ID before installing.\nhttps://github.com/ResistanceTo/MiniWatts#install\n\n## 改进\n\n- **温度可以显示为华氏度。** 设置 → 单位 里可选\"自动 / °C / °F\"。\"自动\"跟随系统地区，以及\"设置 › 通用 › 语言与地区\"里的\"温度\"选项，所以地区使用华氏度的用户升级后会直接看到 °F。App 各页、图表、热力图、悬浮读数、实时活动和小组件都按所选单位显示；原始数据仍显示传感器给出的 °C。(#25)\n- **充电预估。** 充电时，功率页会显示充到 80% 和充到 100% 还要多久，以及大约几点。时间根据电量实际上升的速度推算，不依赖电池能量设置；要等电量变化两次才会出现，通常需要几分钟。80% 以后按典型充电曲线估算，只是近似值。(#27)\n- **显示版本号。** 设置 → 关于 里显示当前版本，原始数据导出的第一行也带上了版本号。(#27)\n- **iPad 布局。** iPad 横屏和 13 英寸竖屏时，各页分成两栏；窄屏时仍是一栏。历史记录里单次充电的详情页在 iPad 上不再横向铺满。(#22)\n- **iPad 热力图。** 在 iPad 上，发热页画的是 iPad 的轮廓，各区域按 iPad Pro 11 英寸的内部布局放置：主板在中间，两侧是电芯，充电芯片在 USB-C 接口旁。设备页和设置里的图标也换成了 iPad。(#13, #22)\n\n## 修复\n\n- 发热：CPU 簇（`pACC`、`eACC`）和图像处理器（`ISP`）等传感器以前被归入\"其他传感器\"，现在算作 SoC，SoC 区域的温度也会把它们算进去。iPhone 11 上 `FrontCameraDie`、`BCMLBSkin` 这类名字连写的传感器以前会被分错区（比如前摄像头被当成机身），现在会先拆词再归类。(#13, #14)\n- 适配器页里\"单次采样\"那段说明以前在中文界面下一直显示英文，现在已有中文。\n\n## 注意\n\n- iPad 相关的改动只在模拟器里验证过，我手上没有 iPad。如果在 iPad 上看到问题，请从 设置 → 原始数据 复制导出并反馈。\n- iPad 上\"来自充电器\"的功率偏低（#13）这次还没有修：要确认其余的输入由哪个传感器测量，需要一份**充电时**导出的原始数据。有 iPad 的话，请在充电时从 设置 → 原始数据 复制导出，贴到 #13。\n- 充电预估无法知道是否开启了充电上限或优化电池充电。如果开着，电池会在上限前停下，\"充到 100%\"的时间就不准。\n\n---\n\n## Improvements\n\n- **Temperatures can be shown in Fahrenheit.** Settings → Units offers Automatic, °C or °F. Automatic follows your region and the Temperature option under Settings › General › Language & Region, so if your region uses Fahrenheit you will see °F straight after updating. Every page, the charts, the heat map, the floating meter, the Live Activity and the widget follow the setting; Raw data still shows the sensors' own °C. (#25)\n- **Charge forecast.** While charging, the Power page shows how long until 80% and until 100%, and roughly when. It is worked out from how fast the battery level is actually rising, so it does not depend on the battery energy setting; it appears once the level has moved twice, usually within a few minutes. Past 80% it follows a typical charging curve and is approximate. (#27)\n- **Version number.** S",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.6.0",
+          "buildVersion": "v1.6.0",
+          "date": "2026-10-27T03:11:13Z",
+          "downloadURL": "https://github.com/ResistanceTo/MiniWatts/releases/download/v1.6.0/MiniWatts-unsigned.ipa",
+          "size": 3332420,
+          "localizedDescription": "Unsigned build — sign it with your own Apple ID before installing.\nhttps://github.com/ResistanceTo/MiniWatts#install\n\n## 改进\n\n- **iPhone 18 Pro 高功率充电时会提示读数可能只有一半。** 在 iPhone 18 Pro 系列上用有线充电、协商功率超过 30 W 时，表盘旁会显示\"可能只读到一半\"，功率页和适配器页也会说明原因：这种情况下输入和电芯两侧的传感器都可能只测到一半功率。数值本身不做修正。\n- **新增\"电量核对\"。** 充电时，App 会把电量上升的速度换算成功率，和电芯传感器在同一段时间里测到的功率对比。如果电量涨得明显比传感器测到的快（1.6 倍以上），表盘旁会显示\"读数偏低\"，并给出两边的数值；如果两边一致，会显示核对通过，上面那条\"可能只读到一半\"的提示也会隐藏。电量要上涨至少 3% 才能给出结果，通常需要几分钟。\n- **传感器按 SMC key 识别，重复的读数会合并。** iOS 27 上每个传感器都会出现两份，以前只取第一份，现在取两份的平均值；发热页的列表里每个传感器也只出现一次。发热页和原始数据会在传感器名旁边标出 key（比如电池温度偏高的那个是 `TG0B`）。\n- **电池能量按机型给默认值。** iPhone 18 Pro Max 为 21.75 Wh，iPhone 17 Pro Max 为 19.7 Wh，其他机型仍是 15 Wh。设置 → 电池能量 里会显示本机型的额定值，点\"使用\"即可填入。已经手动设置过的值保持不变。\n- **原始数据新增\"Derived power checks\"一节。** 这一节记录半功率提示是否生效，以及电量核对的结果。\n\n## 修复\n\n- 适配器：iPhone 18 Pro 高功率充电时，读数偏低不再被误判成线材或接口的问题；在无法确认读数完整时，不计算线路电阻和电流利用率。\n\n## 注意\n\n- iPhone 18 Pro 高功率充电时，完整的输入功率仍然读不到：另一路充电电流没有可读的传感器。这个版本只能提示和核对，不能补上缺失的功率；这段时间的充电记录里的能量统计也仍然偏低。\n- \"电量核对\"还没有在 iPhone 18 Pro 上验证过。如果你有这台手机，请在 45 W 充电、电量上涨几个百分点之后，从 设置 → 原始数据 复制导出并反馈。\n- 如果你的机型不在上面的列表里，请在 设置 → 电池能量 里填入正确的数值，否则电量核对可能一直给不出结论。\n- 部分发现来自 ChargeSpeed 作者在 iPhone 18 Pro Max 上的实测。\n\n---\n\n## Improvements\n\n- **The iPhone 18 Pro now warns when a reading may be half.** On an iPhone 18 Pro model charging by cable on a profile above 30 W, the dial shows \"may read half\", and the Power and Adapter pages explain why: in that mode both the input and the cell sensors can see only half the power. The numbers themselves are not corrected.\n- **New battery level check.** While charging, the app turns the battery level's rise into watts and compares it with what the cell sensors measured over the same stretch. If the level rises much faster (1.6× or more), the dial shows \"reading low\" with both figures; if they agree, the check says so and the \"may read half\" warning is hidden. It needs at least a 3% rise, usually a few minutes.\n- **Sensors are identified by SMC key, and duplicate copies are merged.** iOS 27 publishes every sensor ",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.5.1",
+          "buildVersion": "v1.5.1",
+          "date": "2026-10-13T02:45:39Z",
+          "downloadURL": "https://github.com/ResistanceTo/MiniWatts/releases/download/v1.5.1/MiniWatts-unsigned.ipa",
+          "size": 3305290,
+          "localizedDescription": "Unsigned build — sign it with your own Apple ID before installing.\nhttps://github.com/ResistanceTo/MiniWatts#install\n\n## 改进\n\n- **输入读数不完整时，不再当作输入功率显示。** 在 iPad Pro 和 iPhone 18 Pro Max 上，输入传感器只测到了一部分功率（比如实际 43.5 W 只显示 21.8 W）。现在当进入电芯的功率比输入读数还大时，表盘改为显示\"进入电池\"的功率，不再计算效率和适配器利用率，并在功率页和适配器页说明原因。\n- **电池温度改用中位数。** 部分机型有四个同名的电池温度传感器，其中一个明显偏高。\"电池\"读数、热力图上的电池标记和分区标题现在都用中位数，四个读数仍然逐个列出。\n- **异常温度不再参与计算。** 以下读数不再计入热力图和最高温度，但仍保留在\"原始数据\"里，并注明原因：低于 −10 °C 的 PMU 传感器、高于 85 °C 而结温对不上的充电芯片温度、恰好为 0.0 °C 的传感器。\n- **支持 iPad。** 支持横竖屏，内容不再横向拉满。iPad 的传感器对应关系还没有验证，数据仅供参考。\n- **文案更准确。** \"来自充电器\"改为\"手机接口处 / 充电线圈处\"；适配器页注明额定功率是协商出的上限，不是功率计读数。\n- **原始数据更便于反馈。** 每个传感器带上服务编号，并列出被排除的读数。\n\n## 修复\n\n- 适配器：供电规格列表里不再出现\"65.5 V × 65.53 A\"这样的无效档位。\n- 实时活动：App 在前台时，读数变化 0.05 就会更新，不再等到变化 0.2 W 或 0.5 °C。\n\n## 注意\n\n- 这些修复是根据用户反馈的数据做的，没有在对应机型的真机上验证过。如果你的机型上读数仍然不对，请在 设置 → 原始数据 里复制导出并反馈。\n- iPhone 18 Pro Max 高功率充电时的完整输入功率仍然读不到，需要该机型在 45 W 状态下的原始数据导出。\n- App 退到后台后，灵动岛上的读数会停住，这是系统限制；想持续看实时读数请使用悬浮表。\n\n---\n\n## Improvements\n\n- **An incomplete input reading is no longer shown as the input.** On an iPad Pro and an iPhone 18 Pro Max the input sensors see only part of the power (21.8 W shown for a real 43.5 W, for one). When more power is reaching the cell than the input reading accounts for, the dial now shows the \"into battery\" figure, efficiency and adapter utilisation are not worked out, and the Power and Adapter pages say why.\n- **Battery temperature is a median.** Some models have four battery temperature sensors under one name, one of them reading clearly high. The Battery readout, the heat map's battery pin and the zone header all use the median now; all four are still listed.\n- **Impossible temperatures are left out.** These no longer reach the heat map or the hottest reading, and stay in Raw data with a reason: a PMU sensor below −10 °C, a charge-IC temperature above 85 °C that its junction sensor does not back up, and a sensor at exactly 0.0 °C.\n- **iPad support.** All orientations, and content no longer stretches edge to edge. The",
+          "minOSVersion": "17.0"
         }
       ]
     }
