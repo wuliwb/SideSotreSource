@@ -2,8 +2,8 @@
   "source": {
     "name": "Wuliwb's Source",
     "identifier": "com.wuliwb.sidestore-source",
-    "subtitle": "GestaltX, Roam Control & Erosion-CN",
-    "description": "自动跟踪 GestaltX、Roam Control 和 Erosion-CN 最新 Release IPA 的 SideStore 源。",
+    "subtitle": "GestaltX, Roam Control, Erosion-CN & MiniWatts",
+    "description": "自动跟踪 GestaltX、Roam Control、Erosion-CN 和 MiniWatts 最新 Release IPA 的 SideStore 源。",
     "website": "https://github.com/wuliwb/SideSotreSource",
     "iconURL": "https://raw.githubusercontent.com/wuliwb/SideSotreSource/main/icon.png",
     "tintColor": "#6C5CE7"
@@ -55,6 +55,22 @@
         "localizedDescription": "Erosion-CN 是上游 Erosion 的简体中文分支，100% 汉化界面，并修复了原版重启失效、相机黑屏等严重 Bug，支持写入前预览、写后校验与自动回滚，做到持久化生效、重启不反弹。",
         "category": "utilities",
         "minOSVersion": "26.0"
+      }
+    },
+    {
+      "repo": "ResistanceTo/MiniWatts",
+      "assetPattern": "*.ipa",
+      "includePrereleases": false,
+      "maxVersions": 3,
+      "app": {
+        "bundleIdentifier": "org.zhaohe.MiniWatts",
+        "name": "MiniWatts",
+        "developerName": "ResistanceTo",
+        "iconURL": "https://raw.githubusercontent.com/wuliwb/SideSotreSource/main/MiniWatts-icon.png",
+        "subtitle": "iPhone battery & charging monitor",
+        "localizedDescription": "MiniWatts 是一个基于 Apple 私有 API 的电池与充电监控工具，可显示充电器实时功率、实际进入电芯的电量、热损耗、全部温度传感器读数以及 USB-PD 握手信息。支持 iOS 17+，无任何网络代码，隐私安全。",
+        "category": "utilities",
+        "minOSVersion": "17.0"
       }
     }
   ]
