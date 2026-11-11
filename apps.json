@@ -1,0 +1,80 @@
+{
+  "name": "My SideStore Source",
+  "identifier": "com.yourname.sidestore-source",
+  "subtitle": "GestaltX & Roam Control",
+  "description": "自动跟踪 GestaltX 和 Roam Control 最新 Release IPA 的 SideStore 源。",
+  "website": "https://github.com/你的用户名/你的仓库名",
+  "iconURL": "https://raw.githubusercontent.com/你的用户名/你的仓库名/main/icon.png",
+  "tintColor": "#6C5CE7",
+  "apps": [
+    {
+      "name": "GestaltX",
+      "bundleIdentifier": "com.huamidev.GestaltX",
+      "developerName": "huamidev",
+      "subtitle": "MobileGestalt editor for iOS 27.x",
+      "localizedDescription": "GestaltX 是面向 iOS 27.x 的 MobileGestalt 编辑器，支持区域代码修改、设备预设和备份。",
+      "iconURL": "",
+      "tintColor": "#6C5CE7",
+      "category": "utilities",
+      "versions": [
+        {
+          "version": "1.0.5",
+          "buildVersion": "v1.0.5",
+          "date": "2026-11-11T03:45:16Z",
+          "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.5/GestaltX_1.0.5.ipa",
+          "size": 2942882,
+          "localizedDescription": "English | [简体中文](https://github.com/huamidev/GestaltX/blob/144c0c44a762db616089faddfbc0581929ae1a0a/CHANGELOG_ZH-CN.md#105---2026-11-11)\n\nBuild `11111140`.\n\n### Added\n\n- Spanish localization, bringing the app to nine supported locales ([#97](https://github.com/huamidev/GestaltX/pull/97)).\n- iPhone Air model presets ([#92](https://github.com/huamidev/GestaltX/pull/92)) and a Japanese README ([#83](https://github.com/huamidev/GestaltX/pull/83)).\n\n### Changed\n\n- About now lists the supported OS as iOS / iPadOS 27.x. Installation remains\n  available on 26.x, where on-device MobileGestalt access is marked unsupported.\n- Updated Korean translations ([#84](https://github.com/huamidev/GestaltX/pull/84)) and corrected mixed-language text in\n  Traditional Chinese and other locales ([#61](https://github.com/huamidev/GestaltX/pull/61)).\n- Renamed the Chinese Photos Clean Up preset to “照片消除”.\n- Corrected the Internal Build label and added confirmation before enabling\n  this system-wide flag ([#60](https://github.com/huamidev/GestaltX/pull/60)).\n\n### Fixed\n\n- Device access preserves existing App Group cache contents ([#55](https://github.com/huamidev/GestaltX/pull/55)).\n- Reverting Dynamic Island restores its layout together with its capability\n  flag, without discarding unrelated staged artwork changes ([#58](https://github.com/huamidev/GestaltX/pull/58)).\n- Original-value recovery now checks the cache generation and layout, keeps\n  unavailable originals distinct from missing fields, and avoids repeatedly\n  reading old backup history ([#65](https://github.com/huamidev/GestaltX/pull/65), [#66](https://github.com/huamidev/GestaltX/pull/66)).\n- Restoring an unchanged backup skips unnecessary device writes ([#69](https://github.com/huamidev/GestaltX/pull/69)).\n  Failed backup deletions remain retryable ([#70](https://github.com/huamidev/GestaltX/pull/70)), and local backup\n  replacement clears inherited device-ownership status ([#64](https://github.com/huamidev/GestaltX/pull/64)).\n-",
+          "minOSVersion": "27.0"
+        },
+        {
+          "version": "1.0.4",
+          "buildVersion": "v1.0.4",
+          "date": "2026-11-10T07:27:47Z",
+          "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.4/GestaltX_1.0.4.ipa",
+          "size": 2865180,
+          "localizedDescription": "English | [简体中文](https://github.com/huamidev/GestaltX/blob/v1.0.4/CHANGELOG_ZH-CN.md)\n\nBuild `11101436`.\n\n### Added\n\n- WAPI preset under **Device → Presets**: disable the WAPI regulatory flag or\n  restore the recorded original value. The cached Boolean is resolved from the\n  device's own MobileGestalt image instead of a hard-coded slot (#30).\n- Per-device originals for the WAPI flag. The value survives edits, app\n  restarts, journal migration, and is restored together with the other cached\n  options (#30).\n- New display presets: high-luminance Always-On Display, AOD flipbook and its\n  entry count, HDR photo display, wallpaper parallax control, and experimental\n  PWM and DisplayPort capability flags.\n- New device presets: Collision SOS, Audio Mix, and Spatial FaceTime audio.\n- New intelligence presets: on-device Siri, Audio Intelligence, Personal\n  Translator, Photos Clean Up, Handwriting Synthesis, and always-listening Hey\n  Siri. These remain capability flags; hardware and region still decide what\n  actually runs.\n- Korean localization, bringing the app to eight supported languages (#24).\n- CI now builds an ad-hoc signed IPA automatically and uploads it as an\n  artifact; tag and release runs also attach it to the matching release.\n\n### Changed\n\n- Additional Options and the WAPI row are shown directly in\n  **Device → Presets**. The hidden ten-tap unlock on the About version string\n  was removed.\n- Restore and open actions are disabled while the current document has staged\n  edits. Save or discard them first instead of silently losing the changes\n  (#37).\n- Version bumped to 1.0.4 (`CURRENT_PROJECT_VERSION` 11101436). README version\n  badges and the build date were updated.\n- All new user-facing strings are localized in the eight supported languages\n  (English, Simplified Chinese, Traditional Chinese for Taiwan and Hong Kong,\n  Vietnamese, Russian, Persian, and Korean) (#30, #38).\n\n### Fixed\n\n- Device access now falls back across every signed App Group instead of\n  t",
+          "minOSVersion": "27.0"
+        },
+        {
+          "version": "1.0.3",
+          "buildVersion": "v1.0.3",
+          "date": "2026-11-09T16:23:40Z",
+          "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.3/GestaltX_1.0.3.ipa",
+          "size": 2744822,
+          "localizedDescription": "GestaltX 1.0.3\r\n• 新增分享导入：在“文件”或其他 App 中分享 plist 到 GestaltX，核验后弹窗确认导入。\r\n• 加强设备归属校验，拒绝不匹配或无法核验的文件；本机导出的文件可携带设备校验凭证。\r\n• 优化 MG 控制，支持新增、修改、重命名和删除键值。\r\n• 支持恢复已核验的本机 plist，恢复前自动备份，完成后请重启设备。\r\n\r\n重签时请保留分享扩展，并为主应用和扩展配置同一个 App Group。\r\n\r\nGestaltX 1.0.3\r\n• Added share import: share a plist to GestaltX from Files or another app, then confirm the import after verification.\r\n• Strengthened device ownership checks. Mismatched or unverifiable files are rejected; exports can include a device-bound verification proof.\r\n• Improved MG Control with support for adding, editing, renaming, and deleting keys and values.\r\n• Added restoration of verified device plists, with an automatic backup before restoring. Restart your device afterward.\r\n\r\nWhen re-signing, keep the share extension and configure the same App Group for both the app and extension.",
+          "minOSVersion": "27.0"
+        }
+      ]
+    },
+    {
+      "name": "Roam Control",
+      "bundleIdentifier": "com.roamcontrol",
+      "developerName": "seanhowarthdev",
+      "subtitle": "iPhone location simulator",
+      "localizedDescription": "Roam Control 是一个 iPhone 位置模拟工具，通过 GitHub Releases 以未签名 IPA 形式分发，需要使用你自己的 Apple 账号签名安装。",
+      "iconURL": "",
+      "tintColor": "#6C5CE7",
+      "category": "utilities",
+      "versions": [
+        {
+          "version": "0.9.9",
+          "buildVersion": "v0.9.9",
+          "date": "2026-10-20T19:33:03Z",
+          "downloadURL": "https://github.com/seanhowarthdev/Roam-Control/releases/download/v0.9.9/RoamControl-0.9.9-Build105.ipa",
+          "size": 4627321,
+          "localizedDescription": "\n## Highlights\n\n### 🌍 Roam Control in 10 Languages\nChoose English, Hebrew, Arabic, Simplified Chinese, Traditional Chinese, Japanese, Vietnamese, French, German or Spanish, or use System Default to select from the supported languages based on your iPhone's language preferences. Switch languages immediately, with right-to-left layout support for Hebrew and Arabic.\n\n### 🗺️ Better Maps and Routes\nRefined map controls, route handling and coordinate compatibility, with clearer handling when a route cannot be created.\n\n### 🔄 Smarter Connection Recovery\nImproved connection and location-session recovery when the app is allowed to run. iOS may suspend background apps, so unattended recovery cannot be guaranteed.\n\n### 🚶 Your Speed, Your Route\nCustom movement speeds for Walking, Cycling and Driving, refined driving targets and travel-time estimates, plus improvements to live walking-speed display.\n\n### ✨ UI Refinements\nA clearer language picker with native-language subtitles, improved recovery presentation and better handling of translated text throughout the app.\n\n## What's New\n\n### Localisation\n- Eight new languages bring the total to ten, plus System Default.\n- Language changes apply immediately without relaunching Roam Control.\n- Arabic/Hebrew right-to-left layouts and isolation of PINs, versions and place names.\n- Simplified/Traditional Chinese selection respects script and regional language preferences.\n- Improved plural forms, multi-argument messages, system permissions text and interface sizing.\n\n### Maps and Movement\n- Refined map interaction and coordinate compatibility.\n- Improvements to route handling and route-failure feedback.\n- Custom Walking, Cycling and Driving movement-speed preferences.\n- Better driving speed targets, route time estimates and walking-speed display.\n\n### Connection Health and Recovery\n- Improved reconnection and session-recovery behaviour while iOS allows background or foreground execution.\n- Refined recovery controls and user guidance.\n- Exi",
+          "minOSVersion": "27.0"
+        },
+        {
+          "version": "0.9.7",
+          "buildVersion": "v0.9.7",
+          "date": "2026-10-08T19:54:46Z",
+          "downloadURL": "https://github.com/seanhowarthdev/Roam-Control/releases/download/v0.9.7/RoamControl-0.9.7-Build96.ipa",
+          "size": 4111825,
+          "localizedDescription": "## Stability and reliability improvements\n\nRoam Control 0.9.7 is a maintenance update focused on background location-session reliability and mobile-data connectivity.\n\n### What's improved\n\n- Improved native connection handling for LocalDevVPN.\n- Corrected network-interface selection when LocalDevVPN and a separate Personal VPN are active simultaneously.\n- Improved reliability in tested background and mobile-data scenarios.\n- Verified fixed locations, Walking, Driving, Cycling, Stop & Restore and LocalDevVPN reconnection.\n\nThese improvements were validated on the developer's iPhone. Compatibility with every VPN configuration is not guaranteed.\n\nNo new features, interface changes or pairing implementation changes.\n\n### Installation\n\nRequires iOS 27 or later, Developer Mode and LocalDevVPN.\n\nThe IPA is unsigned and can be signed using SideStore.\n\n**Upgrading directly from 0.9.4?** Back up your favourites, history and supported settings before installing. The app identifier changed in 0.9.5, so existing data will not automatically transfer. Pairing must be completed again.",
+          "minOSVersion": "27.0"
+        }
+      ]
+    }
+  ]
+}
