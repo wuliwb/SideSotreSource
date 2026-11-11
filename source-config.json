@@ -1,0 +1,43 @@
+{
+  "source": {
+    "name": "My SideStore Source",
+    "identifier": "com.yourname.sidestore-source",
+    "subtitle": "GestaltX & Roam Control",
+    "description": "自动跟踪 GestaltX 和 Roam Control 最新 Release IPA 的 SideStore 源。",
+    "website": "https://github.com/你的用户名/你的仓库名",
+    "iconURL": "https://raw.githubusercontent.com/你的用户名/你的仓库名/main/icon.png",
+    "tintColor": "#6C5CE7"
+  },
+  "repos": [
+    {
+      "repo": "huamidev/GestaltX",
+      "assetPattern": "*.ipa",
+      "includePrereleases": false,
+      "maxVersions": 3,
+      "app": {
+        "bundleIdentifier": "com.huamidev.GestaltX",
+        "name": "GestaltX",
+        "developerName": "huamidev",
+        "subtitle": "MobileGestalt editor for iOS 27.x",
+        "localizedDescription": "GestaltX 是面向 iOS 27.x 的 MobileGestalt 编辑器，支持区域代码修改、设备预设和备份。",
+        "category": "utilities",
+        "minOSVersion": "27.0"
+      }
+    },
+    {
+      "repo": "seanhowarthdev/Roam-Control",
+      "assetPattern": "*.ipa",
+      "includePrereleases": true,
+      "maxVersions": 3,
+      "app": {
+        "bundleIdentifier": "com.roamcontrol",
+        "name": "Roam Control",
+        "developerName": "seanhowarthdev",
+        "subtitle": "iPhone location simulator",
+        "localizedDescription": "Roam Control 是一个 iPhone 位置模拟工具，通过 GitHub Releases 以未签名 IPA 形式分发，需要使用你自己的 Apple 账号签名安装。",
+        "category": "utilities",
+        "minOSVersion": "27.0"
+      }
+    }
+  ]
+}
