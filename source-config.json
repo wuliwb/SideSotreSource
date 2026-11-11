@@ -2,8 +2,8 @@
   "source": {
     "name": "Wuliwb's Source",
     "identifier": "com.wuliwb.sidestore-source",
-    "subtitle": "GestaltX & Roam Control",
-    "description": "自动跟踪 huamidev/GestaltX 和 seanhowarthdev/Roam-Control 最新 Release IPA 的 SideStore 源。",
+    "subtitle": "GestaltX, Roam Control & Erosion-CN",
+    "description": "自动跟踪 GestaltX、Roam Control 和 Erosion-CN 最新 Release IPA 的 SideStore 源。",
     "website": "https://github.com/wuliwb/SideSotreSource",
     "iconURL": "https://raw.githubusercontent.com/wuliwb/SideSotreSource/main/icon.png",
     "tintColor": "#6C5CE7"
@@ -39,6 +39,22 @@
         "localizedDescription": "Roam Control 是一个 iPhone 位置模拟工具，通过 GitHub Releases 以未签名 IPA 形式分发，需要使用你自己的 Apple 账号签名安装。",
         "category": "utilities",
         "minOSVersion": "27.0"
+      }
+    },
+    {
+      "repo": "Kianuni/Erosion-CN",
+      "assetPattern": "*.ipa",
+      "includePrereleases": true,
+      "maxVersions": 3,
+      "app": {
+        "bundleIdentifier": "com.kianuni.Erosion-CN",
+        "name": "Erosion-CN",
+        "developerName": "Kianuni",
+        "iconURL": "https://raw.githubusercontent.com/wuliwb/SideSotreSource/main/ErosionCN-icon.png",
+        "subtitle": "iOS 系统配置与 MobileGestalt 研究工具箱",
+        "localizedDescription": "Erosion-CN 是上游 Erosion 的简体中文分支，100% 汉化界面，并修复了原版重启失效、相机黑屏等严重 Bug，支持写入前预览、写后校验与自动回滚，做到持久化生效、重启不反弹。",
+        "category": "utilities",
+        "minOSVersion": "26.0"
       }
     }
   ]
