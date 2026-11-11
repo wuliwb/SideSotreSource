@@ -1,11 +1,11 @@
 {
   "source": {
-    "name": "My SideStore Source",
-    "identifier": "com.yourname.sidestore-source",
+    "name": "wuliwb SideStore Source",
+    "identifier": "com.wuliwb.sidestore-source",
     "subtitle": "GestaltX & Roam Control",
-    "description": "自动跟踪 GestaltX 和 Roam Control 最新 Release IPA 的 SideStore 源。",
-    "website": "https://github.com/你的用户名/你的仓库名",
-    "iconURL": "https://raw.githubusercontent.com/你的用户名/你的仓库名/main/icon.png",
+    "description": "自动跟踪 huamidev/GestaltX 和 seanhowarthdev/Roam-Control 最新 Release IPA 的 SideStore 源。",
+    "website": "https://github.com/wuliwb/SideSotreSource",
+    "iconURL": "https://raw.githubusercontent.com/wuliwb/SideSotreSource/main/icon.png",
     "tintColor": "#6C5CE7"
   },
   "repos": [
