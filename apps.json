@@ -18,6 +18,15 @@
       "category": "utilities",
       "versions": [
         {
+          "version": "1.0.7",
+          "buildVersion": "v1.0.7",
+          "date": "2026-11-12T17:14:29Z",
+          "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.7/GestaltX_1.0.7.ipa",
+          "size": 3563948,
+          "localizedDescription": "English | [简体中文](https://github.com/huamidev/GestaltX/blob/v1.0.7/CHANGELOG_ZH-CN.md)\r\n\r\nBuild `11130112`.\r\n\r\n### Fixed\r\n\r\n- Fix container discovery on iOS 27.3 so wallpaper and App Launch Images can locate their containers again.\r\n\r\n",
+          "minOSVersion": "27.0"
+        },
+        {
           "version": "1.0.5",
           "buildVersion": "v1.0.5",
           "date": "2026-11-11T03:45:16Z",
@@ -33,15 +42,6 @@
           "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.4/GestaltX_1.0.4.ipa",
           "size": 2865180,
           "localizedDescription": "English | [简体中文](https://github.com/huamidev/GestaltX/blob/v1.0.4/CHANGELOG_ZH-CN.md)\n\nBuild `11101436`.\n\n### Added\n\n- WAPI preset under **Device → Presets**: disable the WAPI regulatory flag or\n  restore the recorded original value. The cached Boolean is resolved from the\n  device's own MobileGestalt image instead of a hard-coded slot (#30).\n- Per-device originals for the WAPI flag. The value survives edits, app\n  restarts, journal migration, and is restored together with the other cached\n  options (#30).\n- New display presets: high-luminance Always-On Display, AOD flipbook and its\n  entry count, HDR photo display, wallpaper parallax control, and experimental\n  PWM and DisplayPort capability flags.\n- New device presets: Collision SOS, Audio Mix, and Spatial FaceTime audio.\n- New intelligence presets: on-device Siri, Audio Intelligence, Personal\n  Translator, Photos Clean Up, Handwriting Synthesis, and always-listening Hey\n  Siri. These remain capability flags; hardware and region still decide what\n  actually runs.\n- Korean localization, bringing the app to eight supported languages (#24).\n- CI now builds an ad-hoc signed IPA automatically and uploads it as an\n  artifact; tag and release runs also attach it to the matching release.\n\n### Changed\n\n- Additional Options and the WAPI row are shown directly in\n  **Device → Presets**. The hidden ten-tap unlock on the About version string\n  was removed.\n- Restore and open actions are disabled while the current document has staged\n  edits. Save or discard them first instead of silently losing the changes\n  (#37).\n- Version bumped to 1.0.4 (`CURRENT_PROJECT_VERSION` 11101436). README version\n  badges and the build date were updated.\n- All new user-facing strings are localized in the eight supported languages\n  (English, Simplified Chinese, Traditional Chinese for Taiwan and Hong Kong,\n  Vietnamese, Russian, Persian, and Korean) (#30, #38).\n\n### Fixed\n\n- Device access now falls back across every signed App Group instead of\n  t",
-          "minOSVersion": "27.0"
-        },
-        {
-          "version": "1.0.3",
-          "buildVersion": "v1.0.3",
-          "date": "2026-11-09T16:23:40Z",
-          "downloadURL": "https://github.com/huamidev/GestaltX/releases/download/v1.0.3/GestaltX_1.0.3.ipa",
-          "size": 2744822,
-          "localizedDescription": "GestaltX 1.0.3\r\n• 新增分享导入：在“文件”或其他 App 中分享 plist 到 GestaltX，核验后弹窗确认导入。\r\n• 加强设备归属校验，拒绝不匹配或无法核验的文件；本机导出的文件可携带设备校验凭证。\r\n• 优化 MG 控制，支持新增、修改、重命名和删除键值。\r\n• 支持恢复已核验的本机 plist，恢复前自动备份，完成后请重启设备。\r\n\r\n重签时请保留分享扩展，并为主应用和扩展配置同一个 App Group。\r\n\r\nGestaltX 1.0.3\r\n• Added share import: share a plist to GestaltX from Files or another app, then confirm the import after verification.\r\n• Strengthened device ownership checks. Mismatched or unverifiable files are rejected; exports can include a device-bound verification proof.\r\n• Improved MG Control with support for adding, editing, renaming, and deleting keys and values.\r\n• Added restoration of verified device plists, with an automatic backup before restoring. Restart your device afterward.\r\n\r\nWhen re-signing, keep the share extension and configure the same App Group for both the app and extension.",
           "minOSVersion": "27.0"
         }
       ]
